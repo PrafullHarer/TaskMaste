@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { useTaskContext } from '../context/TaskContext';
 import { useAuthContext } from '../context/AuthContext';
 import { X, Calendar, Tag, Repeat, Plus, Bell } from 'lucide-react';
+import { formatDate } from '../utils/dateHelpers';
 
 const TaskModal = ({ isOpen, onClose, editTask = null }) => {
   const { createTask, updateTask, categories, fetchTasks } = useTaskContext();
@@ -15,11 +16,11 @@ const TaskModal = ({ isOpen, onClose, editTask = null }) => {
     type: editTask?.type || 'one-time',
     priority: editTask?.priority || defPriority,
     status: editTask?.status || 'todo',
-    dueDate: editTask?.dueDate ? new Date(editTask.dueDate).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
+    dueDate: editTask?.dueDate ? formatDate(new Date(editTask.dueDate)) : formatDate(new Date()),
     category: editTask?.category?._id || editTask?.category || '',
     tags: editTask?.tags?.join(', ') || '',
-    recStartDate: editTask?.recurrence?.startDate ? new Date(editTask.recurrence.startDate).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
-    recEndDate: editTask?.recurrence?.endDate ? new Date(editTask.recurrence.endDate).toISOString().split('T')[0] : '',
+    recStartDate: editTask?.recurrence?.startDate ? formatDate(new Date(editTask.recurrence.startDate)) : formatDate(new Date()),
+    recEndDate: editTask?.recurrence?.endDate ? formatDate(new Date(editTask.recurrence.endDate)) : '',
     reminderMinutes: editTask?.reminderMinutes || '',
     targetCount: editTask?.targetCount || 1,
   });
@@ -45,7 +46,7 @@ const TaskModal = ({ isOpen, onClose, editTask = null }) => {
       }
       if (editTask) { await updateTask(editTask._id, taskData); }
       else { await createTask(taskData); }
-      await fetchTasks({ date: new Date().toISOString().split('T')[0], view: 'day' });
+      await fetchTasks({ date: formatDate(new Date()), view: 'day' });
       onClose();
     } catch {} finally { setLoading(false); }
   };

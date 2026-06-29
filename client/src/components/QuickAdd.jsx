@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { useTaskContext } from '../context/TaskContext';
+import { formatDate } from '../utils/dateHelpers';
 
 const QuickAdd = ({ onOpenModal }) => {
   const [title, setTitle] = useState('');
@@ -10,9 +11,9 @@ const QuickAdd = ({ onOpenModal }) => {
     e.preventDefault();
     if (!title.trim()) return;
     try {
-      await createTask({ title: title.trim(), type: 'one-time', priority: 'medium', dueDate: new Date().toISOString().split('T')[0] });
+      await createTask({ title: title.trim(), type: 'one-time', priority: 'medium', dueDate: formatDate(new Date()) });
       setTitle('');
-      await fetchTasks({ date: new Date().toISOString().split('T')[0], view: 'day' });
+      await fetchTasks({ date: formatDate(new Date()), view: 'day' });
     } catch {}
   };
 
