@@ -6,6 +6,8 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "server/api/index.js" },
-    { "src": "/(.*)", "dest": "client/dist/$1" }
+    { "src": "/assets/(.*)", "dest": "client/dist/assets/$1" },
+    { "src": "/vite.svg", "dest": "client/dist/vite.svg" },
+    { "src": "/(.*)", "dest": "client/dist/index.html" }
   ]
 }
