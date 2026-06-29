@@ -34,7 +34,7 @@ const Register = () => {
             <Flame className="w-7 h-7 text-white dark:text-black" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-black dark:text-white">TaskMaste</h1>
+            <h1 className="text-2xl font-bold text-black dark:text-white">WorkOS</h1>
             <p className="text-xs text-black/50 dark:text-white/50">Smart Task Management</p>
           </div>
         </div>

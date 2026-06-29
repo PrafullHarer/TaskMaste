@@ -48,7 +48,7 @@ export const exportToJSON = (tasks) => {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
-  link.download = `taskmaste-export-${new Date().toISOString().split('T')[0]}.json`;
+  link.download = `workos-export-${new Date().toISOString().split('T')[0]}.json`;
   link.click();
   URL.revokeObjectURL(url);
 };
@@ -72,7 +72,7 @@ export const exportToCSV = (tasks) => {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
-  link.download = `taskmaste-export-${new Date().toISOString().split('T')[0]}.csv`;
+  link.download = `workos-export-${new Date().toISOString().split('T')[0]}.csv`;
   link.click();
   URL.revokeObjectURL(url);
 };

@@ -58,7 +58,7 @@ const Sidebar = () => {
             <Flame className="w-5 h-5 text-white dark:text-black" />
           </div>
           <span className="text-lg font-black text-black dark:text-white uppercase tracking-wider">
-            TaskMaste
+            WorkOS
           </span>
         </div>
         <button

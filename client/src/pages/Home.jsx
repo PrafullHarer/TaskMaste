@@ -15,7 +15,7 @@ const Home = () => {
               <Flame className="w-6 h-6 text-white dark:text-black" />
             </div>
             <span className="text-xl font-black uppercase tracking-wider">
-              TaskMaste
+              WorkOS
             </span>
           </div>
           <div className="flex items-center gap-3">
@@ -51,7 +51,7 @@ const Home = () => {
               </span>
             </h1>
             <p className="text-xl lg:text-2xl text-black/70 dark:text-white/70 max-w-2xl font-bold leading-relaxed">
-              TaskMaste is a raw, high-performance task management ecosystem built to give you absolute control over your daily workflows, habit loops, and calendars.
+              WorkOS is a raw, high-performance task management ecosystem built to give you absolute control over your daily workflows, habit loops, and calendars.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <Link to={user ? "/dashboard" : "/register"} className="btn-primary text-center flex items-center justify-center gap-2 text-lg py-4 px-8">
@@ -152,7 +152,7 @@ const Home = () => {
       <footer className="border-t-2 border-black dark:border-white p-6 bg-white dark:bg-black">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm font-mono text-black/60 dark:text-white/60">
-            TaskMaste &copy; {new Date().getFullYear()}. Built for builders.
+            WorkOS &copy; {new Date().getFullYear()}. Built for builders.
           </p>
           <div className="flex gap-4">
             <a href="https://github.com" target="_blank" rel="noreferrer" className="text-sm hover:underline font-bold">GitHub</a>

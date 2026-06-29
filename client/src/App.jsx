@@ -28,7 +28,7 @@ const App = () => {
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black">
         <div className="flex flex-col items-center gap-4">
           <div className="w-14 h-14 border-4 border-black/20 border-t-black dark:border-white/20 dark:border-t-white rounded-none animate-spin" />
-          <p className="text-black/60 dark:text-white/60 font-medium animate-pulse">Loading TaskMaste...</p>
+          <p className="text-black/60 dark:text-white/60 font-medium animate-pulse">Loading WorkOS...</p>
         </div>
       </div>
     );

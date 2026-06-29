@@ -1,4 +1,4 @@
-# ⚡ TaskMaste - Smart Task Manager
+# ⚡ WorkOS - Smart Task Manager
 
 A high-performance, full-stack task management application featuring a striking **Neo-Brutalist** design language. Built with React (Vite), Express, and MongoDB, and animated with GSAP.
 
@@ -7,22 +7,22 @@ A high-performance, full-stack task management application featuring a striking 
 ## 📸 App Preview & Screenshots
 
 ### 🏠 Landing Home Page
-![TaskMaste Landing Page](./docs/images/home.png)
+![WorkOS Landing Page](./docs/images/home.png)
 
 ### 📊 Main Task Dashboard (Unified Yellow Theme)
-![TaskMaste Dashboard](./docs/images/dashboard.png)
+![WorkOS Dashboard](./docs/images/dashboard.png)
 
 ### 📅 Responsive Calendar View
-![TaskMaste Calendar](./docs/images/calendar.png)
+![WorkOS Calendar](./docs/images/calendar.png)
 
 ### 🔍 Detailed Task Info & Habit Calendar
-![TaskMaste Task Detail Page](./docs/images/task_detail.png)
+![WorkOS Task Detail Page](./docs/images/task_detail.png)
 
 ---
 
 ## 🎨 Neo-Brutalist Design & Aesthetics
 
-TaskMaste stands out with a deliberate, high-contrast **Neo-Brutalist** visual style:
+WorkOS stands out with a deliberate, high-contrast **Neo-Brutalist** visual style:
 * **High Contrast Borders:** Solid 2px-3px black borders (`border-2 border-black`) with flat shadow elevations.
 * **Vibrant Retro Palettes:** Playful yet functional colors contrasting with clean whites, deep blacks, and a fully customizable Dark Mode system.
 * **Solid Geometry:** Sharp corners, retro typography pairings (Space Grotesk & Space Mono), and raw mechanical layouts.
@@ -85,7 +85,7 @@ npm run install:all
 Create a `.env` file in the root directory:
 ```env
 PORT=5000
-MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/taskmaste
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/workos
 JWT_SECRET=your_jwt_secret_key_here
 JWT_REFRESH_SECRET=your_refresh_secret_key_here
 CLIENT_URL=http://localhost:5173
@@ -142,7 +142,7 @@ npm run dev:server  # Runs Express server at http://localhost:5000
 
 ## 🚀 Hosting on Vercel
 
-TaskMaste is pre-configured to be deployed as a single monorepo project on **Vercel** utilizing the root `vercel.json` and package configurations.
+WorkOS is pre-configured to be deployed as a single monorepo project on **Vercel** utilizing the root `vercel.json` and package configurations.
 
 ### 📋 Prerequisites
 * A MongoDB Atlas database cluster.
@@ -150,10 +150,10 @@ TaskMaste is pre-configured to be deployed as a single monorepo project on **Ver
 
 ### 🛠️ Step-by-Step Deployment
 1. **Push Code to GitHub:**
-   Ensure your local branch is fully pushed to GitHub (already completed at `https://github.com/PrafullHarer/TaskMaste.git`).
+   Ensure your local branch is fully pushed to GitHub (already completed at `https://github.com/PrafullHarer/WorkOS.git`).
 2. **Import Project on Vercel:**
    * Go to your [Vercel Dashboard](https://vercel.com/dashboard) and click **"Add New"** -> **"Project"**.
-   * Import the **`TaskMaste`** repository.
+   * Import the **`WorkOS`** repository.
 3. **Configure Project Settings:**
    * **Framework Preset:** Select **"Other"** (Vercel will automatically read root scripts and `vercel.json`).
    * **Root Directory:** Keep it as root `./`.

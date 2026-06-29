@@ -1,7 +1,7 @@
 {
-  "name": "taskmaste-server",
+  "name": "workos-server",
   "version": "1.0.0",
-  "description": "TaskMaste REST API with Express and MongoDB",
+  "description": "WorkOS REST API with Express and MongoDB",
   "main": "api/index.js",
   "scripts": {
     "dev": "nodemon api/index.js",
