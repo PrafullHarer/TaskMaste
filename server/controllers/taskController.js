@@ -281,13 +281,12 @@ const completeOccurrence = asyncHandler(async (req, res) => {
     return res.status(400).json({ error: 'Task is not a repeating task.' });
   }
 
-  // Validate that the date is within the past 5 days and not in the future
+  // Validate that the date is within the past 5 days and not in the future (relative to client's local timezone)
+  const clientDate = req.headers['x-client-date'] || formatDate(new Date());
   const cellDate = new Date(date + 'T12:00:00');
-  const todayDate = new Date();
-  todayDate.setHours(23, 59, 59, 999);
-  const fiveDaysAgo = new Date();
+  const todayDate = new Date(clientDate + 'T23:59:59.999');
+  const fiveDaysAgo = new Date(clientDate + 'T00:00:00.000');
   fiveDaysAgo.setDate(fiveDaysAgo.getDate() - 5);
-  fiveDaysAgo.setHours(0, 0, 0, 0);
 
   if (cellDate < fiveDaysAgo || cellDate > todayDate) {
     return res.status(400).json({ error: 'Completions can only be edited for today and the past 5 days.' });
@@ -354,13 +353,12 @@ const skipOccurrence = asyncHandler(async (req, res) => {
     return res.status(400).json({ error: 'Task is not a repeating task.' });
   }
 
-  // Validate that the date is within the past 5 days and not in the future
+  // Validate that the date is within the past 5 days and not in the future (relative to client's local timezone)
+  const clientDate = req.headers['x-client-date'] || formatDate(new Date());
   const cellDate = new Date(date + 'T12:00:00');
-  const todayDate = new Date();
-  todayDate.setHours(23, 59, 59, 999);
-  const fiveDaysAgo = new Date();
+  const todayDate = new Date(clientDate + 'T23:59:59.999');
+  const fiveDaysAgo = new Date(clientDate + 'T00:00:00.000');
   fiveDaysAgo.setDate(fiveDaysAgo.getDate() - 5);
-  fiveDaysAgo.setHours(0, 0, 0, 0);
 
   if (cellDate < fiveDaysAgo || cellDate > todayDate) {
     return res.status(400).json({ error: 'Completions can only be edited for today and the past 5 days.' });
