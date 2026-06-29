@@ -162,12 +162,12 @@ const TaskDetail = () => {
       </button>
 
       {/* Task Header info card */}
-      <div className="border-4 border-black dark:border-white p-6 bg-white dark:bg-neutral-950 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] flex items-start gap-4">
-        <div className="w-14 h-14 bg-yellow-400 border-2 border-black flex items-center justify-center text-black font-black text-2xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+      <div className="border-2 border-black dark:border-white p-4 bg-white dark:bg-neutral-950 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] flex items-start gap-4">
+        <div className="w-11 h-11 bg-yellow-400 border-2 border-black flex items-center justify-center text-black font-black text-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           {task.title.charAt(0).toUpperCase()}
         </div>
         <div>
-          <h1 className="text-3xl lg:text-4xl font-black uppercase tracking-tight">{task.title}</h1>
+          <h1 className="text-2xl lg:text-3xl font-black uppercase tracking-tight">{task.title}</h1>
           <div className="flex items-center gap-2 mt-2">
             <span className="inline-block text-xs font-black uppercase tracking-widest bg-neutral-200 dark:bg-neutral-800 text-black/60 dark:text-white/60 px-2 py-0.5 border border-black dark:border-white">
               {recurrenceLabel}
@@ -186,16 +186,16 @@ const TaskDetail = () => {
           {/* Stats Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {/* Current Streak */}
-            <div className="bg-orange-100 dark:bg-orange-950 border-2 border-black dark:border-white p-4 flex flex-col items-center justify-center text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-              <Flame className="w-8 h-8 text-orange-600 dark:text-orange-400 mb-1" />
-              <span className="text-2xl lg:text-3xl font-black">{task.streak || 0}</span>
+            <div className="bg-orange-100 dark:bg-orange-950 border-2 border-black dark:border-white p-3 flex flex-col items-center justify-center text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
+              <Flame className="w-6 h-6 text-orange-600 dark:text-orange-400 mb-1" />
+              <span className="text-xl lg:text-2xl font-black">{task.streak || 0}</span>
               <span className="text-[10px] uppercase font-black text-black/55 dark:text-white/55 tracking-wider">Streak</span>
             </div>
 
             {/* Lifetime Completions */}
-            <div className="bg-emerald-100 dark:bg-emerald-950 border-2 border-black dark:border-white p-4 flex flex-col items-center justify-center text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-              <CheckCircle2 className="w-8 h-8 text-emerald-600 dark:text-emerald-400 mb-1" />
-              <span className="text-2xl lg:text-3xl font-black">
+            <div className="bg-emerald-100 dark:bg-emerald-950 border-2 border-black dark:border-white p-3 flex flex-col items-center justify-center text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
+              <CheckCircle2 className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mb-1" />
+              <span className="text-xl lg:text-2xl font-black">
                 {task.targetCount > 1 ? totalUnits : completedDays}
               </span>
               <span className="text-[10px] uppercase font-black text-black/55 dark:text-white/55 tracking-wider truncate">
@@ -204,9 +204,9 @@ const TaskDetail = () => {
             </div>
 
             {/* Monthly Completions */}
-            <div className="bg-purple-100 dark:bg-purple-950 border-2 border-black dark:border-white p-4 flex flex-col items-center justify-center text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-              <Calendar className="w-8 h-8 text-purple-600 dark:text-purple-400 mb-1" />
-              <span className="text-2xl lg:text-3xl font-black">
+            <div className="bg-purple-100 dark:bg-purple-950 border-2 border-black dark:border-white p-3 flex flex-col items-center justify-center text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
+              <Calendar className="w-6 h-6 text-purple-600 dark:text-purple-400 mb-1" />
+              <span className="text-xl lg:text-2xl font-black">
                 {task.targetCount > 1 ? monthlyUnits : monthlyCompletedDays}
               </span>
               <span className="text-[10px] uppercase font-black text-black/55 dark:text-white/55 tracking-wider truncate">
@@ -215,16 +215,16 @@ const TaskDetail = () => {
             </div>
 
             {/* Completion Rate / Score */}
-            <div className="bg-blue-100 dark:bg-blue-950 border-2 border-black dark:border-white p-4 flex flex-col items-center justify-center text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-              <Activity className="w-8 h-8 text-blue-600 dark:text-blue-400 mb-1" />
-              <span className="text-2xl lg:text-3xl font-black">{completionRate}%</span>
+            <div className="bg-blue-100 dark:bg-blue-950 border-2 border-black dark:border-white p-3 flex flex-col items-center justify-center text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
+              <Activity className="w-6 h-6 text-blue-600 dark:text-blue-400 mb-1" />
+              <span className="text-xl lg:text-2xl font-black">{completionRate}%</span>
               <span className="text-[10px] uppercase font-black text-black/55 dark:text-white/55 tracking-wider">Score</span>
             </div>
           </div>
 
           {/* Description Card */}
           {task.description && (
-            <div className="border-2 border-black dark:border-white p-4 bg-neutral-50 dark:bg-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+            <div className="border-2 border-black dark:border-white p-3 bg-neutral-50 dark:bg-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
               <h4 className="text-xs uppercase font-black tracking-wider text-black/50 dark:text-white/50 mb-1">Description</h4>
               <p className="text-sm font-bold">{task.description}</p>
             </div>
@@ -232,7 +232,7 @@ const TaskDetail = () => {
 
           {/* Habit Calendar Grid */}
           {task.type === 'repeating' && (
-            <div className="border-2 border-black dark:border-white p-4 bg-white dark:bg-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+            <div className="border-2 border-black dark:border-white p-3 bg-white dark:bg-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
               {/* Calendar Header */}
               <div className="flex flex-col sm:flex-row gap-3 justify-between sm:items-center mb-4">
                 <h3 className="text-lg font-black uppercase tracking-tight flex items-center gap-2">
@@ -260,7 +260,7 @@ const TaskDetail = () => {
               </div>
 
               {/* Weekdays */}
-              <div className="grid grid-cols-7 gap-1.5 text-center font-black text-[10px] uppercase tracking-wider text-black/60 dark:text-white/60 mb-2 border-b border-black/10 dark:border-white/10 pb-1">
+              <div className="grid grid-cols-7 gap-1.5 text-center font-black text-xs sm:text-sm uppercase tracking-wider text-black/60 dark:text-white/60 mb-2 border-b border-black/10 dark:border-white/10 pb-1">
                 <div>Sun</div>
                 <div>Mon</div>
                 <div>Tue</div>
@@ -276,7 +276,7 @@ const TaskDetail = () => {
                 {Array.from({ length: firstDayIndex }).map((_, idx) => (
                   <div 
                     key={`empty-${idx}`} 
-                    className="h-9 sm:h-11 border-2 border-dashed border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-950/20"
+                    className="aspect-square border-2 border-dashed border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-950/20"
                   />
                 ))}
 
@@ -303,7 +303,7 @@ const TaskDetail = () => {
                   const isTooOld = cellDate < fiveDaysAgo;
                   const isEditable = !isFutureCell && !isTooOld;
 
-                  let cellClass = "h-9 sm:h-11 border-2 flex flex-col justify-between p-1 sm:p-1.5 font-mono transition-all relative ";
+                  let cellClass = "aspect-square border-2 flex flex-col justify-between p-1 sm:p-1.5 font-mono transition-all relative ";
 
                   if (isEditable) {
                     cellClass += "hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] cursor-pointer ";
@@ -366,15 +366,15 @@ const TaskDetail = () => {
                                 : `Missed${isTooOld ? ' (Locked)' : ''}`
                       }
                     >
-                      <span className={`text-[9px] sm:text-[10px] ${isTodayCell ? 'font-black text-yellow-600 dark:text-yellow-400' : 'font-bold'}`}>
+                      <span className={`text-xs sm:text-base ${isTodayCell ? 'font-black text-yellow-600 dark:text-yellow-400' : 'font-bold'}`}>
                         {day}
                       </span>
-                      <div className="text-[7px] sm:text-[8px] font-black text-right self-end leading-none">
+                      <div className="text-[9px] sm:text-[10px] font-black text-right self-end leading-none">
                         {isDone && (
                           task.targetCount > 1 ? (
                             <span>{count}</span>
                           ) : (
-                            <span className="text-[8px] sm:text-[9px] font-bold">✓</span>
+                            <span className="text-[10px] sm:text-[11px] font-bold">✓</span>
                           )
                         )}
                         {isTodo && count > 0 && (
@@ -452,7 +452,7 @@ const TaskDetail = () => {
           )}
 
           {/* Timeline History */}
-          <div className="border-4 border-black dark:border-white p-5 bg-white dark:bg-neutral-950 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
+          <div className="border-2 border-black dark:border-white p-3.5 bg-white dark:bg-neutral-950 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
             <h3 className="text-lg font-black uppercase tracking-tight flex items-center gap-2 mb-4">
               Timeline History
             </h3>
