@@ -181,11 +181,7 @@ const TaskDetail = () => {
         </div>
       </div>
 
-      {/* Main Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-        
-        {/* Left Column: Stats & Calendar */}
-        <div className="lg:col-span-2 space-y-6">
+      {/* Stats Grid */}
           
           {/* Stats Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -454,10 +450,8 @@ const TaskDetail = () => {
               </div>
             </div>
           )}
-        </div>
 
-        {/* Right Column: Timeline History */}
-        <div className="space-y-6">
+          {/* Timeline History */}
           <div className="border-4 border-black dark:border-white p-5 bg-white dark:bg-neutral-950 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
             <h3 className="text-lg font-black uppercase tracking-tight flex items-center gap-2 mb-4">
               Timeline History
@@ -506,8 +500,6 @@ const TaskDetail = () => {
               )}
             </div>
           </div>
-        </div>
-      </div>
     </div>
   );
 };
