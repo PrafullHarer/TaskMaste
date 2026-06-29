@@ -140,6 +140,36 @@ npm run dev:server  # Runs Express server at http://localhost:5000
 
 ---
 
+## 🚀 Hosting on Vercel
+
+TaskMaste is pre-configured to be deployed as a single monorepo project on **Vercel** utilizing the root `vercel.json` and package configurations.
+
+### 📋 Prerequisites
+* A MongoDB Atlas database cluster.
+* A Vercel account linked to your GitHub account.
+
+### 🛠️ Step-by-Step Deployment
+1. **Push Code to GitHub:**
+   Ensure your local branch is fully pushed to GitHub (already completed at `https://github.com/PrafullHarer/TaskMaste.git`).
+2. **Import Project on Vercel:**
+   * Go to your [Vercel Dashboard](https://vercel.com/dashboard) and click **"Add New"** -> **"Project"**.
+   * Import the **`TaskMaste`** repository.
+3. **Configure Project Settings:**
+   * **Framework Preset:** Select **"Other"** (Vercel will automatically read root scripts and `vercel.json`).
+   * **Root Directory:** Keep it as root `./`.
+   * **Build and Development Settings:**
+     * **Build Command:** `npm run build`
+     * **Output Directory:** `client/dist`
+     * **Install Command:** `npm run install:all` (crucial to install dependencies in both the `server` and `client` subdirectories).
+4. **Environment Variables:**
+   Add the following variables under the **"Environment Variables"** tab:
+   * `MONGODB_URI`: Your MongoDB Atlas connection string (e.g. `mongodb+srv://...`).
+   * `JWT_SECRET`: A secure random string for JWT authentication.
+5. **Deploy:**
+   Click **"Deploy"**. Vercel will install, build the frontend, and run your Express API endpoints through Vercel Functions.
+
+---
+
 ## 📂 Project Structure
 
 ```text
