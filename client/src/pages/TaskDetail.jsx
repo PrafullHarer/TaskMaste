@@ -386,31 +386,31 @@ const TaskDetail = () => {
                       {selectedDayMenu?.dateStr === dateStr && (
                         <div 
                           onClick={(e) => e.stopPropagation()}
-                          className={`absolute left-1/2 z-30 w-32 bg-black text-white dark:bg-white dark:text-black py-1 border-2 border-black dark:border-white font-mono text-[9px] uppercase font-black -translate-x-1/2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,1)] ${menuPositionClass}`}
+                          className={`absolute left-1/2 z-30 w-40 bg-black text-white dark:bg-white dark:text-black py-1 border-2 border-black dark:border-white font-mono text-xs uppercase font-black -translate-x-1/2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,1)] ${menuPositionClass}`}
                         >
                           <button 
                             onClick={(e) => handleCellAction('complete', dateStr, e)}
-                            className="w-full px-2 py-1.5 hover:bg-neutral-800 dark:hover:bg-neutral-200 text-left transition-colors duration-100 flex items-center gap-1 cursor-pointer"
+                            className="w-full px-3 py-2 hover:bg-neutral-800 dark:hover:bg-neutral-200 text-left transition-colors duration-100 flex items-center gap-1.5 cursor-pointer"
                           >
                             {task.targetCount > 1 ? '+ Increment' : '✓ Complete'}
                           </button>
                           <button 
                             onClick={(e) => handleCellAction('skip', dateStr, e)}
-                            className="w-full px-2 py-1.5 hover:bg-neutral-800 dark:hover:bg-neutral-200 text-left transition-colors duration-100 flex items-center gap-1 cursor-pointer"
+                            className="w-full px-3 py-2 hover:bg-neutral-800 dark:hover:bg-neutral-200 text-left transition-colors duration-100 flex items-center gap-1.5 cursor-pointer"
                           >
                             → Skip Day
                           </button>
                           {comp && (
                             <button 
                               onClick={(e) => handleCellAction('clear', dateStr, e)}
-                              className="w-full px-2 py-1.5 hover:bg-neutral-800 dark:hover:bg-neutral-200 text-left text-red-400 dark:text-red-650 transition-colors duration-100 flex items-center gap-1 cursor-pointer font-bold"
+                              className="w-full px-3 py-2 hover:bg-neutral-800 dark:hover:bg-neutral-200 text-left text-red-400 dark:text-red-650 transition-colors duration-100 flex items-center gap-1.5 cursor-pointer font-bold"
                             >
                               ✕ Clear
                             </button>
                           )}
                           <button 
                             onClick={(e) => { e.stopPropagation(); setSelectedDayMenu(null); }}
-                            className="w-full px-2 py-1 hover:bg-neutral-800 dark:hover:bg-neutral-200 text-left opacity-60 transition-colors duration-100 cursor-pointer border-t border-current/20 mt-1 pt-1"
+                            className="w-full px-3 py-1.5 hover:bg-neutral-800 dark:hover:bg-neutral-200 text-left opacity-60 transition-colors duration-100 cursor-pointer border-t border-current/20 mt-1 pt-1.5"
                           >
                             Cancel
                           </button>
