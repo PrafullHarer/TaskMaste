@@ -276,7 +276,7 @@ const TaskDetail = () => {
                 {Array.from({ length: firstDayIndex }).map((_, idx) => (
                   <div 
                     key={`empty-${idx}`} 
-                    className="aspect-square border-2 border-dashed border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-950/20"
+                    className="h-9 sm:h-11 border-2 border-dashed border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-950/20"
                   />
                 ))}
 
@@ -303,7 +303,7 @@ const TaskDetail = () => {
                   const isTooOld = cellDate < fiveDaysAgo;
                   const isEditable = !isFutureCell && !isTooOld;
 
-                  let cellClass = "aspect-square border-2 flex flex-col justify-between p-1 sm:p-1.5 font-mono transition-all relative ";
+                  let cellClass = "h-9 sm:h-11 border-2 flex flex-col justify-between p-1 sm:p-1.5 font-mono transition-all relative ";
 
                   if (isEditable) {
                     cellClass += "hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] cursor-pointer ";
