@@ -389,7 +389,7 @@ export const StaggeredMenu = ({
             />
           ) : (
             <span className="text-xl font-mono font-black text-black dark:text-white uppercase tracking-widest bg-white dark:bg-black px-2 py-1 border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
-              [TF]
+              WO
             </span>
           )}
         </div>

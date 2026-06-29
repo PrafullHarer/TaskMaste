@@ -150,7 +150,7 @@ const Sidebar = () => {
       openMenuButtonColor={isDark ? '#ffffff' : '#000000'}
       changeMenuColorOnOpen={true}
       colors={isDark ? ['#1e1b4b', '#311042'] : ['#facc15', '#e9d5ff']}
-      logoUrl="" // Empty to show text branding '[TF]'
+      logoUrl="" // Empty to show text branding 'WO'
       accentColor="#facc15"
     />
   );
