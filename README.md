@@ -4,6 +4,19 @@ A high-performance, full-stack task management application featuring a striking 
 
 ---
 
+## 📸 App Preview & Screenshots
+
+### 🏠 Landing Home Page
+![TaskMaste Landing Page](./docs/images/home.png)
+
+### 📊 Main Task Dashboard (Unified Yellow Theme)
+![TaskMaste Dashboard](./docs/images/dashboard.png)
+
+### 📅 Responsive Calendar View
+![TaskMaste Calendar](./docs/images/calendar.png)
+
+---
+
 ## 🎨 Neo-Brutalist Design & Aesthetics
 
 TaskMaste stands out with a deliberate, high-contrast **Neo-Brutalist** visual style:
