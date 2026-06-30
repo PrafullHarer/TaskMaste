@@ -330,7 +330,6 @@ const completeOccurrence = asyncHandler(async (req, res) => {
 
   await task.save();
   const populated = await task.populate('category', 'name color');
-  const clientDate = req.headers['x-client-date'] || formatDate(new Date());
 
   res.json({
     task: populated,
@@ -373,7 +372,6 @@ const skipOccurrence = asyncHandler(async (req, res) => {
 
   await task.save();
   const populated = await task.populate('category', 'name color');
-  const clientDate = req.headers['x-client-date'] || formatDate(new Date());
 
   res.json({
     task: populated,
