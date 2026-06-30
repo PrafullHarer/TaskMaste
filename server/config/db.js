@@ -1,27 +1,36 @@
 const mongoose = require('mongoose');
 
-let isConnected = false;
-
 const connectDB = async () => {
-  if (isConnected) {
+  // Already connected — skip
+  if (mongoose.connection.readyState === 1) {
     return;
+  }
+
+  // Connection is in progress — wait for it
+  if (mongoose.connection.readyState === 2) {
+    await new Promise((resolve) => {
+      mongoose.connection.once('connected', resolve);
+      mongoose.connection.once('error', resolve);
+    });
+    if (mongoose.connection.readyState === 1) return;
+  }
+
+  if (!process.env.MONGODB_URI) {
+    throw new Error('MONGODB_URI environment variable is not set');
   }
 
   try {
     mongoose.set('strictQuery', false);
     const conn = await mongoose.connect(process.env.MONGODB_URI, {
       dbName: 'taskmanager',
-      family: 4,
       serverSelectionTimeoutMS: 10000,
       connectTimeoutMS: 10000,
-      tlsAllowInvalidCertificates: true,
     });
-    isConnected = true;
     console.log(`MongoDB connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(`MongoDB connection error: ${error.message}`);
-    // Don't exit — retry on next request (for serverless)
-    isConnected = false;
+    // Re-throw so the caller (middleware) can handle it properly
+    throw error;
   }
 };
 

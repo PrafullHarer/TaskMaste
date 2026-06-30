@@ -1,3 +1,4 @@
+// Load .env only if it exists (local dev); Vercel injects env vars directly
 require('dotenv').config({ path: require('path').resolve(__dirname, '../../.env') });
 
 const express = require('express');
@@ -11,16 +12,12 @@ const categoryRoutes = require('../routes/categoryRoutes');
 
 const app = express();
 
-// Ensure DB is connected before handling any request (critical for serverless cold starts)
-app.use(async (req, res, next) => {
-  try {
-    await connectDB();
-    next();
-  } catch (err) {
-    console.error('DB connection middleware error:', err.message);
-    res.status(503).json({ error: 'Database connection failed. Please try again.' });
-  }
-});
+// Log env availability on cold start (redacted for security)
+console.log('[Boot] MONGODB_URI set:', !!process.env.MONGODB_URI);
+console.log('[Boot] JWT_SECRET set:', !!process.env.JWT_SECRET);
+console.log('[Boot] JWT_REFRESH_SECRET set:', !!process.env.JWT_REFRESH_SECRET);
+console.log('[Boot] CLIENT_URL:', process.env.CLIENT_URL || '(not set)');
+console.log('[Boot] NODE_ENV:', process.env.NODE_ENV || '(not set)');
 
 // Middleware
 app.use(cors({
@@ -29,6 +26,17 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(cookieParser());
+
+// Ensure DB is connected before handling any request (critical for serverless cold starts)
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error('DB connection middleware error:', err.message);
+    res.status(503).json({ error: 'Database connection failed: ' + err.message });
+  }
+});
 
 // Routes
 app.use('/api/auth', authRoutes);
@@ -53,3 +61,4 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Export for Vercel serverless
 module.exports = app;
+
