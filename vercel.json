@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "installCommand": "npm install && cd server && npm install && cd ../client && npm install --include=dev",
+  "installCommand": "npm install && cd client && npm install --include=dev",
   "buildCommand": "cd client && npm run build",
   "outputDirectory": "client/dist",
   "rewrites": [
@@ -8,3 +8,4 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
+
