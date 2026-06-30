@@ -11,8 +11,16 @@ const categoryRoutes = require('../routes/categoryRoutes');
 
 const app = express();
 
-// Connect to MongoDB
-connectDB();
+// Ensure DB is connected before handling any request (critical for serverless cold starts)
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error('DB connection middleware error:', err.message);
+    res.status(503).json({ error: 'Database connection failed. Please try again.' });
+  }
+});
 
 // Middleware
 app.use(cors({

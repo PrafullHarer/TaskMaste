@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuthContext } from '../context/AuthContext';
 import { useTaskContext } from '../context/TaskContext';
 import { taskAPI } from '../api';
-import { exportToJSON, exportToCSV } from '../utils/helpers';
+import { exportToJSON, exportToCSV, getErrorMessage } from '../utils/helpers';
 import toast from 'react-hot-toast';
 import { Settings as SettingsIcon, User, Lock, Palette, Download, Trash2, Plus, Moon, Sun, Eye, EyeOff, X } from 'lucide-react';
 
@@ -30,7 +30,7 @@ const Settings = () => {
       setPassword('');
       toast.success('Profile updated!');
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Update failed');
+      toast.error(getErrorMessage(err, 'Update failed'));
     } finally { setSaving(false); }
   };
 

@@ -3,6 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContext';
 import { Flame, Mail, Lock, User, ArrowRight } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { getErrorMessage } from '../utils/helpers';
 
 const Register = () => {
   const { user, register } = useAuthContext();
@@ -20,7 +21,7 @@ const Register = () => {
       await register(name, email, password);
       toast.success('Account created!');
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Registration failed');
+      toast.error(getErrorMessage(err, 'Registration failed'));
     } finally {
       setLoading(false);
     }

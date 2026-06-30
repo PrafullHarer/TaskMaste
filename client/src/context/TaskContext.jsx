@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useCallback } from 'react';
 import { taskAPI, categoryAPI } from '../api';
 import toast from 'react-hot-toast';
+import { getErrorMessage } from '../utils/helpers';
 
 const TaskContext = createContext(null);
 
@@ -28,7 +29,7 @@ export const TaskProvider = ({ children }) => {
       setRepeatingTasks(data.repeatingTasks || []);
       return data;
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Failed to fetch tasks');
+      toast.error(getErrorMessage(err, 'Failed to fetch tasks'));
     } finally {
       setLoading(false);
     }
@@ -60,7 +61,7 @@ export const TaskProvider = ({ children }) => {
       toast.success('Task created!');
       return data.task;
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Failed to create task');
+      toast.error(getErrorMessage(err, 'Failed to create task'));
       throw err;
     }
   };
@@ -72,7 +73,7 @@ export const TaskProvider = ({ children }) => {
       toast.success('Task updated!');
       return data.task;
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Failed to update task');
+      toast.error(getErrorMessage(err, 'Failed to update task'));
       throw err;
     }
   };
@@ -84,7 +85,7 @@ export const TaskProvider = ({ children }) => {
       setOccurrences((prev) => prev.filter((o) => o.taskId !== id));
       toast.success('Task deleted!');
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Failed to delete task');
+      toast.error(getErrorMessage(err, 'Failed to delete task'));
     }
   };
 
@@ -94,7 +95,7 @@ export const TaskProvider = ({ children }) => {
       setTasks((prev) => prev.map((t) => (t._id === id ? data.task : t)));
       return data.task;
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Failed to complete task');
+      toast.error(getErrorMessage(err, 'Failed to complete task'));
     }
   };
 
@@ -126,7 +127,7 @@ export const TaskProvider = ({ children }) => {
       );
       return data;
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Failed to complete occurrence');
+      toast.error(getErrorMessage(err, 'Failed to complete occurrence'));
     }
   };
 
@@ -154,7 +155,7 @@ export const TaskProvider = ({ children }) => {
       );
       return data;
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Failed to skip occurrence');
+      toast.error(getErrorMessage(err, 'Failed to skip occurrence'));
     }
   };
 
@@ -178,7 +179,7 @@ export const TaskProvider = ({ children }) => {
       }
       setSelectedTasks([]);
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Bulk action failed');
+      toast.error(getErrorMessage(err, 'Bulk action failed'));
     }
   };
 
@@ -197,7 +198,7 @@ export const TaskProvider = ({ children }) => {
       toast.success('Category created!');
       return data.category;
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Failed to create category');
+      toast.error(getErrorMessage(err, 'Failed to create category'));
       throw err;
     }
   };
@@ -209,7 +210,7 @@ export const TaskProvider = ({ children }) => {
       toast.success('Category updated!');
       return data.category;
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Failed to update category');
+      toast.error(getErrorMessage(err, 'Failed to update category'));
       throw err;
     }
   };
@@ -220,7 +221,7 @@ export const TaskProvider = ({ children }) => {
       setCategories((prev) => prev.filter((c) => c._id !== id));
       toast.success('Category deleted!');
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Failed to delete category');
+      toast.error(getErrorMessage(err, 'Failed to delete category'));
     }
   };
 

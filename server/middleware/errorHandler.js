@@ -30,8 +30,9 @@ const errorHandler = (err, req, res, _next) => {
 
   // Default error
   const statusCode = err.statusCode || 500;
+  const errorMessage = typeof err.message === 'string' ? err.message : 'Internal server error.';
   res.status(statusCode).json({
-    error: err.message || 'Internal server error.',
+    error: errorMessage || 'Internal server error.',
   });
 };
 

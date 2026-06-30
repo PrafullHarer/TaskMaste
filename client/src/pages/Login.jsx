@@ -3,6 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContext';
 import { Flame, Mail, Lock, ArrowRight } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { getErrorMessage } from '../utils/helpers';
 
 const Login = () => {
   const { user, login } = useAuthContext();
@@ -19,7 +20,7 @@ const Login = () => {
       await login(email, password);
       toast.success('Welcome back!');
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Login failed');
+      toast.error(getErrorMessage(err, 'Login failed'));
     } finally {
       setLoading(false);
     }

@@ -1,3 +1,16 @@
+/**
+ * Safely extract a string error message from an axios error response.
+ * Prevents React error #31 when the backend returns an object instead of a string.
+ */
+export const getErrorMessage = (err, fallback = 'Something went wrong') => {
+  const data = err?.response?.data;
+  if (typeof data?.error === 'string') return data.error;
+  if (typeof data?.error === 'object' && data.error?.message) return data.error.message;
+  if (typeof data?.message === 'string') return data.message;
+  if (typeof err?.message === 'string') return err.message;
+  return fallback;
+};
+
 export const setupNotifications = () => {
   if (!('Notification' in window)) {
     return false;
